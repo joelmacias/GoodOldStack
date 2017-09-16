@@ -14,11 +14,15 @@ public:
     //constructor
     LinkedList();
 
+    ~LinkedList();
+
     //insert at head
     void InsertAtHead(DataType data);
 
     //remove at head
     void RemoveFromHead();
+
+    DataType& GetHeadData();
 
     //returns size of list
     std::size_t GetSize();
@@ -48,6 +52,21 @@ LinkedList<DataType>::Node::Node(DataType data) {
    next = NULL;
 }
 
+template <class DataType>
+LinkedList<DataType>::~LinkedList() {
+    if(head != NULL){
+       while(head != NULL){
+           Node* temp = head;
+           head = head->next;
+           delete temp;
+       }
+    }
+    std::cout<<"LMAO i got called";
+}
+template <class DataType>
+DataType& LinkedList<DataType>::GetHeadData() {
+    return head->data;
+}
 template <class DataType>
 LinkedList<DataType>::LinkedList() {
     head = NULL;
