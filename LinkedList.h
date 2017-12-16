@@ -61,7 +61,6 @@ LinkedList<DataType>::~LinkedList() {
            delete temp;
        }
     }
-    std::cout<<"LMAO i got called";
 }
 template <class DataType>
 DataType& LinkedList<DataType>::GetHeadData() {
